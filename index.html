@@ -7,9 +7,7 @@
     <p style="text-align:center;"><img src="http://i.imgur.com/T5exxQS.gif"></p>
     
     
-    <center>
-  <big>You have sat through <span id="spin">0 spins</span>!</big>
-</center>
+
 </body>
 
 
@@ -24,11 +22,3 @@
 
 </html> 
 
-
-<script>
-$(window).load(function (){
-  var spins = 0;
-  setInterval(function () {
-    spins = spins + 1;
-    $("#spin").text(spins + " spin" + (spins != 1 ? "s" : ""));
-</script>
