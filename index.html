@@ -3,14 +3,38 @@
     Boji Spin
   </title>
   
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
   
   <body>
     <p style="text-align:center;"><img src="http://i.imgur.com/T5exxQS.gif"></p>
     
-    <center>
-  <big>You have sat through <span id="spin">0 spins</span>!</big>
-</center>
+<label id="minutes">00</label>:<label id="seconds">00</label>
+    <script type="text/javascript">
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+    </script>
 
 </body>
 
@@ -25,15 +49,6 @@
 </body>
 </html>
 
-<script>
-$(window).load(function (){
-  var spins = 0;
-  setInterval(function () {
-    spins = spins + 1;
-    $("#spin").text(spins + " spin" + (spins != 1 ? "s" : ""));
 
-  }, 4210);
-});
-</script>
   
 
